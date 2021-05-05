@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
+from django.db.models import Q
 
-from rest_framework.status import status
+from rest_framework import status
 from rest_framework.response import Response
 
 from .serializer import TodoSerializer
@@ -17,40 +18,40 @@ def index(request):
         try:
             todos = Todo.objects.all()
             serialized_todos = TodoSerializer(todos, many=True)
-            return JsonResponse(serialized_todos.data, safe=False)
+            return Response(serialized_todos.data)
         except Exception:
-            return HttpResponse(status=500)
+            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     elif request.method == "POST":
-        todo = JSONParser().parse(request)
-        serialized_todo = TodoSerializer(data=todo)
+        serialized_todo = TodoSerializer(data=request.data)
 
         if serialized_todo.is_valid():
             serialized_todo.save()
-            return HttpResponse(status=200)
+            return Response(status=status.HTTP_200_OK)
 
-        return HttpResponse(status=400)
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
 
 
-@csrf_exempt
-def todo_operation(request, id):
+@api_view(["GET", "PATCH", "DELETE"])
+def todo_operation(request, uid, id):
     try:
-        todo = Todo.objects.get(id=id)
+        check_user = Q(uid=uid)
+        check_id = Q(id=id)
+        todo = Todo.objects.filter(check_user & check_id)[0]
     except Exception:
-        return HttpResponse(status=404)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "GET":
         serialized_todo = TodoSerializer(todo)
-        return JsonResponse(serialized_todo.data, safe=False)
+        return Response(serialized_todo.data)
     elif request.method == "PATCH":
-        update_todo = JSONParser().parse(request)
-        serialized_update_todo = TodoSerializer(todo, data=update_todo)
+        serialized_update_todo = TodoSerializer(todo, data=request.data)
 
         if serialized_update_todo.is_valid():
             serialized_update_todo.save()
-            return JsonResponse(serialized_update_todo.data, safe=False)
-        return HttpResponse(status=400)
+            return Response(serialized_update_todo.data)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
     elif request.method == "DELETE":
         todo.delete()
-        return HttpResponse(status=200)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-    return HttpResponse(status=400)
+    return Response(status=status.HTTP_400_BAD_REQUEST)
