@@ -1,0 +1,25 @@
+.navbar-container {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-container p {
+  text-align: center;
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.user {
+  display: flex;
+}
+
+.navbar-element {
+  text-align: center;
+  margin: 10px;
+  margin-left: 20px;
+}
