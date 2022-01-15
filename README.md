@@ -1,7 +1,11 @@
 # TodoApp
 
-Login Logout
-![Alt Text](https://res.cloudinary.com/blankc/video/upload/v1642228338/loginLogout_j2lmnq.mp4)
 
-Functionalities
-![Alt Text](https://res.cloudinary.com/blankc/video/upload/v1642228271/functionalitiesAndNetwork_eatmuh.mp4)
+
+https://user-images.githubusercontent.com/80830461/149612026-93716960-fd6d-4c17-b5e8-540fa446608c.mp4
+
+
+
+
+https://user-images.githubusercontent.com/80830461/149612008-1a4522d1-9083-4594-9fec-d551551a3fbd.mp4
+
