@@ -21,7 +21,8 @@ def index(request):
             return Response(serialized_todos.data)
         except Exception:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    elif request.method == "POST":
+
+    if request.method == "POST":
         serialized_todo = TodoSerializer(data=request.data)
 
         if serialized_todo.is_valid():
@@ -29,6 +30,17 @@ def index(request):
             return Response(status=status.HTTP_200_OK)
 
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+def user_todo(request, uid):
+    if request.method == "GET":
+        try:
+            todos = Todo.objects.filter(uid=uid)
+            serialized_todos = TodoSerializer(todos, many=True)
+            return Response(serialized_todos.data)
+        except Exception:
+            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(["GET", "PATCH", "DELETE"])

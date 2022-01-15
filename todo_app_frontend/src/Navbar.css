@@ -1,13 +1,9 @@
 .navbar-container {
-  background-color: red;
+  background-color: #5d4954;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.navbar-container p {
-  text-align: center;
-  margin: 10px;
+  height: 10vh;
 }
 
 ul {
@@ -22,4 +18,10 @@ ul {
   text-align: center;
   margin: 10px;
   margin-left: 20px;
+  text-decoration: none;
+  color: rgb(226, 226, 226);
+}
+
+.active-class {
+  text-decoration: underline;
 }

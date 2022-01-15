@@ -1,0 +1,44 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: darksalmon;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  width: 50vw;
+  height: 50vh;
+  background-color: #ffebed;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+}
+
+.todo-container h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+  .todo-container {
+    width: 60vw;
+    height: 60vh;
+    background-color: #ffebed;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .main-container {
+    height: 80vh;
+    width: 100vw;
+  }
+  .todo-container {
+    width: 100vw;
+    height: 80vh;
+    background-color: #ffebed;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+  }
+}

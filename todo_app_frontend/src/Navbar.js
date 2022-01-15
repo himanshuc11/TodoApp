@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase/app";
+import { NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 
@@ -17,8 +18,7 @@ class Navbar extends Component {
       .signOut()
       .then(() => {
         // Sign-out successful.
-        //alert("You are signed out");
-        console.log(firebase.auth().currentUser);
+        alert("You have logged out");
       })
       .catch((error) => {
         // An error happened.
@@ -29,12 +29,31 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar-container">
-        <p>Todo list</p>
+        <NavLink
+          exact
+          to="/"
+          activeClassName="active-class"
+          className="navbar-element"
+        >
+          Todo List
+        </NavLink>
         <ul className="user">
-          <li className="navbar-element">Todo List</li>
-          <li className="navbar-element">
-            <button onClick={this.logout}>Logout</button>
-          </li>
+          <NavLink
+            exact
+            to="/login"
+            className="navbar-element"
+            activeClassName="active-class"
+          >
+            Login
+          </NavLink>
+          <NavLink
+            exact
+            to="/"
+            className="navbar-element"
+            onClick={this.logout}
+          >
+            Logout
+          </NavLink>
         </ul>
       </nav>
     );

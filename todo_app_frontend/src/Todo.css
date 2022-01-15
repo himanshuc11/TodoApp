@@ -1,13 +1,18 @@
 .todo-item {
   max-width: 60vw;
-  background-color: rebeccapurple;
+  background-color: #ffebed;
   margin: auto;
   padding: 0px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .todo-item p {
+  padding-left: 10px;
+}
+
+.todo-item strike {
   padding-left: 10px;
 }
 
@@ -24,7 +29,6 @@ img {
 @media screen and (max-width: 600px) {
   .todo-item {
     max-width: 80vw;
-    background-color: red;
     margin: auto;
     padding: 0px;
     display: flex;
