@@ -1,12 +1,29 @@
 # TodoApp
 
-https://user-images.githubusercontent.com/80830461/149612008-1a4522d1-9083-4594-9fec-d551551a3fbd.mp4
+
+## Functionalities
++ SPA application, meaning no page reloads
++ Login with GMail, Facebook or GitHub
++ Filter Incomplete, Complete todos without a fetch request
++ Todo Storage on the Backend
+
+### Login Logout Demo
+![loginLogout](https://user-images.githubusercontent.com/80830461/149613081-01a98524-651f-40fa-8493-6cdf00eee76c.gif)
+
+### CRUD Demo of Todos
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/80830461/149613516-b6a075b0-eeac-4a1f-90d9-f9c4ea1e9cad.gif)
 
 
+## Tech Stack
++ React
++ Firebase
++ Django Rest Framework
++ Django Cors Headers
++ SQLite Database
 
-https://user-images.githubusercontent.com/80830461/149612026-93716960-fd6d-4c17-b5e8-540fa446608c.mp4
+## Architecture
 
-
+![Todoarchitecture](https://user-images.githubusercontent.com/80830461/149613362-31b29918-7c2c-42f1-a24d-264008f3233a.JPG)
 
 
 
