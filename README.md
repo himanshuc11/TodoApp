@@ -27,8 +27,9 @@ https://nifty-clarke-48a15b.netlify.app/
 ![Todoarchitecture](https://user-images.githubusercontent.com/80830461/149613362-31b29918-7c2c-42f1-a24d-264008f3233a.JPG)
 
 # Learning Outcomes
-+ How to build SPA front-end in React and REST Backend in Django Rest Framework
++ How to build SPA front-end in React and REST Backend in Django Rest Framework,and connect them together
 + How to use Firebase for OAuth
++ How to use Flexbox and create Responsive UI
 
 # Improvement's that can be made
 + Convert FrontEnd Code from Class Based to Function Based
